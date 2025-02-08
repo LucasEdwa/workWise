@@ -4,7 +4,8 @@ import { IUser } from './IUser';
 export interface ICompany extends Document {
   name: string;
   address: string;
-  organizationNumber:number;
+  organizationNumber: number;
+  password: string;
   users: IUser['_id'][];
   createdAt: Date;
   updatedAt: Date;
@@ -15,6 +16,7 @@ const CompanySchema: Schema = new Schema(
     name: { type: String, required: true },
     address: { type: String, required: true },
     organizationNumber: { type: Number, required: true },
+    password: { type: String, required: true },
     users: [{ type: Schema.Types.ObjectId, ref: 'User' }],
   },
   { timestamps: true }

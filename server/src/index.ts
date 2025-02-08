@@ -1,5 +1,6 @@
 import express, { Request, Response } from 'express';
 import mongoose from 'mongoose';
+import cors from 'cors';
 
 import { taskRouter } from './routes/task';
 import { userRouter } from './routes/user';
@@ -7,7 +8,11 @@ import { companyRouter } from './routes/company';
 
 const app = express();
 app.use(express.json());
-
+app.use(cors({
+  origin: 'http://localhost:5173', // Replace with your frontend's origin
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+}));
 // Connect to the database
 mongoose.connect(
   "mongodb+srv://lucaseduardo:lucas123@cluster0.6xqqdof.mongodb.net/workWise?retryWrites=true&w=majority&appName=Cluster0"
