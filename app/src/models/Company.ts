@@ -6,4 +6,5 @@ export interface Company {
     users: string[];
     createdAt: Date;
     updatedAt: Date;
+    companyId: string;
   }

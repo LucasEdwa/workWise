@@ -3,6 +3,7 @@ import Layout from "./pages/Layout";
 import NotFound from "./pages/NotFound";
 import Dashboard from "./pages/Dashboard";
 import AuthPage from "./pages/AuthPage";
+import UserPage from "./pages/UserPage";
 
 export const router = createBrowserRouter([
   {
@@ -19,8 +20,8 @@ export const router = createBrowserRouter([
         element: <Dashboard />,
       },
       {
-        path: "/auth",
-        element: <AuthPage />,
+        path: "/users",
+        element: <UserPage />,
       },
     ],
   },

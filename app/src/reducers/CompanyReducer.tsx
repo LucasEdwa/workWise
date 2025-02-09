@@ -9,7 +9,8 @@ export interface CompanyState {
 export type CompanyAction =
   | { type: 'ADD_COMPANY'; payload: Company }
   | { type: 'REMOVE_COMPANY'; payload: string }
-  | { type: 'UPDATE_COMPANY'; payload: Company };
+  | { type: 'UPDATE_COMPANY'; payload: Company }
+  | { type: 'SET_ERROR'; payload: string };
 
 export const initialCompanyState: CompanyState = {
   companies: [],
@@ -26,6 +27,9 @@ export const companyReducer = (state: CompanyState, action: CompanyAction): Comp
         ...state,
         companies: state.companies.map(company => (company._id === action.payload._id ? action.payload : company)),
       };
+    case 'SET_ERROR':
+      return { ...state, error: action.payload };
+
     default:
       return state;
   }
